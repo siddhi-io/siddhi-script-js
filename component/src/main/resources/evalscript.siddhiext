@@ -16,5 +16,4 @@
 # under the License.
 #
 
-scala=org.wso2.siddhi.extension.evalscript.EvalScala
-javascript=org.wso2.siddhi.extension.evalscript.EvalJavaScript
+javascript=org.wso2.extension.siddhi.evalscript.js.EvalJavaScript
