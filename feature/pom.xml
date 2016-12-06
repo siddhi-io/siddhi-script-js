@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.wso2.extension.siddhi.evalscript</groupId>
+        <groupId>org.wso2.extension.siddhi.evalscript.js</groupId>
         <artifactId>siddhi-evalscript-js-parent</artifactId>
         <version>3.1.3-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -33,7 +33,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.wso2.extension.siddhi.evalscript</groupId>
+            <groupId>org.wso2.extension.siddhi.evalscript.js</groupId>
             <artifactId>siddhi-evalscript-js</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -63,7 +63,7 @@
                             </adviceFile>
                             <bundles>
                                 <bundleDef>
-                                    org.wso2.extension.siddhi.evalscript:siddhi-evalscript-js
+                                    org.wso2.extension.siddhi.evalscript.js:siddhi-evalscript-js
                                 </bundleDef>
                             </bundles>
                         </configuration>
