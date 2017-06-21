@@ -16,30 +16,30 @@
  * under the License.
  */
 
-package org.wso2.extension.siddhi.evalscript.js;
+package org.wso2.extension.siddhi.script.js;
 
 import org.apache.log4j.Logger;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.wso2.extension.siddhi.evalscript.js.test.util.SiddhiTestHelper;
-import org.wso2.siddhi.core.ExecutionPlanRuntime;
+import org.testng.AssertJUnit;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import org.wso2.extension.siddhi.script.js.test.util.SiddhiTestHelper;
+import org.wso2.siddhi.core.SiddhiAppRuntime;
 import org.wso2.siddhi.core.SiddhiManager;
 import org.wso2.siddhi.core.event.Event;
-import org.wso2.siddhi.core.exception.ExecutionPlanCreationException;
+import org.wso2.siddhi.core.exception.SiddhiAppCreationException;
 import org.wso2.siddhi.core.query.output.callback.QueryCallback;
 import org.wso2.siddhi.core.stream.input.InputHandler;
 import org.wso2.siddhi.core.util.EventPrinter;
-import org.wso2.siddhi.query.api.exception.ExecutionPlanValidationException;
+import org.wso2.siddhi.query.api.exception.SiddhiAppValidationException;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class EvalScriptTestCase {
 
-    static final Logger log = Logger.getLogger(EvalScriptTestCase.class);
+    private static final Logger log = Logger.getLogger(EvalScriptTestCase.class);
     private AtomicInteger count = new AtomicInteger(0);
 
-    @Before
+    @BeforeMethod
     public void init() {
         count.set(0);
     }
@@ -50,7 +50,7 @@ public class EvalScriptTestCase {
         log.info("testEvalJavaScriptConcat");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("evalscript:javascript", EvalJavaScript.class);
+//        siddhiManager.setExtension("scriptcript:javascript", EvalJavaScript.class);
 
         String concatFunc = "define function concatJ[JavaScript] return string {\n" +
                 "  var str1 = data[0];\n" +
@@ -61,16 +61,18 @@ public class EvalScriptTestCase {
                 "};";
 
         String cseEventStream = "define stream cseEventStream (symbol string, price float, volume long);";
-        String query = ("@info(name = 'query1') from cseEventStream select price , concatJ(symbol,' ',price) as concatStr " +
+        String query = ("@info(name = 'query1') from cseEventStream select price ," +
+                " concatJ(symbol,' ',price) as concatStr " +
                 "group by volume insert into mailOutput;");
-        ExecutionPlanRuntime executionPlanRuntime = siddhiManager.createExecutionPlanRuntime(concatFunc + cseEventStream + query);
+        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
+                concatFunc + cseEventStream + query);
 
         executionPlanRuntime.addCallback("query1", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
                 EventPrinter.print(timeStamp, inEvents, removeEvents);
                 Object value = inEvents[inEvents.length - 1].getData(1);
-                Assert.assertEquals("WSO2 50", value);
+                AssertJUnit.assertEquals("WSO2 50", value);
                 count.incrementAndGet();
             }
         });
@@ -78,20 +80,20 @@ public class EvalScriptTestCase {
         InputHandler inputHandler = executionPlanRuntime.getInputHandler("cseEventStream");
         executionPlanRuntime.start();
 
-        inputHandler.send(new Object[]{"WSO2", 50f, 60f, 60l, 6});
+        inputHandler.send(new Object[]{"WSO2", 50f, 60f, 60L, 6});
         SiddhiTestHelper.waitForEvents(100, 1, count, 60000);
-        Assert.assertEquals(1, count.get());
+        AssertJUnit.assertEquals(1, count.get());
 
         executionPlanRuntime.shutdown();
     }
 
-    @Test(expected = ExecutionPlanCreationException.class)
+    @Test(expectedExceptions = SiddhiAppCreationException.class)
     public void testJavaScriptCompilationFailure() throws InterruptedException {
 
         log.info("testJavaScriptCompilationFailure");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("evalscript:javascript", EvalJavaScript.class);
+        siddhiManager.setExtension("script:javascript", EvalJavaScript.class);
 
         String concatFunc = "define function concatJ[JavaScript] return string {\n" +
                 "  var str1 = data[0;\n" +
@@ -101,37 +103,38 @@ public class EvalScriptTestCase {
                 "  return res;\n" +
                 "};";
 
-        ExecutionPlanRuntime executionPlanRuntime = siddhiManager.createExecutionPlanRuntime(concatFunc);
+        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(concatFunc);
 
         executionPlanRuntime.shutdown();
     }
 
-    @Test(expected = ExecutionPlanValidationException.class)
+    @Test(expectedExceptions = SiddhiAppValidationException.class)
     public void testUseUndefinedFunction() throws InterruptedException {
         log.info("testUseUndefinedFunction");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("evalscript:javascript", EvalJavaScript.class);
+        siddhiManager.setExtension("script:javascript", EvalJavaScript.class);
         String cseEventStream = "define stream cseEventStream (symbol string, price float, volume long);";
-        String query = ("@info(name = 'query1') from cseEventStream select price , undefinedFunc(symbol,' ',price) as concatStr " +
+        String query = ("@info(name = 'query1') from cseEventStream select price , " +
+                "undefinedFunc(symbol,' ',price) as concatStr " +
                 "group by volume insert into mailOutput;");
-        ExecutionPlanRuntime executionPlanRuntime = siddhiManager.createExecutionPlanRuntime(cseEventStream + query);
+        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(cseEventStream + query);
 
         executionPlanRuntime.addCallback("query1", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
                 EventPrinter.print(timeStamp, inEvents, removeEvents);
                 Object value = inEvents[inEvents.length - 1].getData(1);
-                Assert.assertEquals("IBM 700.0", value);
+                AssertJUnit.assertEquals("IBM 700.0", value);
                 count.incrementAndGet();
             }
         });
 
         InputHandler inputHandler = executionPlanRuntime.getInputHandler("cseEventStream");
         executionPlanRuntime.start();
-        inputHandler.send(new Object[]{"IBM", 700f, 100l});
+        inputHandler.send(new Object[]{"IBM", 700f, 100L});
         SiddhiTestHelper.waitForEvents(1000, 1, count, 60000);
-        Assert.assertEquals(1, count.get());
+        AssertJUnit.assertEquals(1, count.get());
 
         executionPlanRuntime.shutdown();
     }

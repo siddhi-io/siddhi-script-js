@@ -16,18 +16,30 @@
  * under the License.
  */
 
-package org.wso2.extension.siddhi.evalscript.js;
+package org.wso2.extension.siddhi.script.js;
 
-import org.wso2.siddhi.core.exception.ExecutionPlanCreationException;
-import org.wso2.siddhi.core.exception.ExecutionPlanRuntimeException;
-import org.wso2.siddhi.core.function.EvalScript;
+import org.wso2.siddhi.annotation.Example;
+import org.wso2.siddhi.annotation.Extension;
+import org.wso2.siddhi.core.exception.SiddhiAppCreationException;
+import org.wso2.siddhi.core.exception.SiddhiAppRuntimeException;
+import org.wso2.siddhi.core.function.Script;
+import org.wso2.siddhi.core.util.config.ConfigReader;
 import org.wso2.siddhi.query.api.definition.Attribute;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-public class EvalJavaScript implements EvalScript {
+/**
+ * This class is for evaluate javascript
+ **/
+@Extension(
+        name = "javascript",
+        namespace = "script",
+        description = "Evaluate javascript functions",
+        examples = @Example(description = "TBD", syntax = "TBD")
+)
+public class EvalJavaScript extends Script {
 
     private ScriptEngine engine;
     private Attribute.Type returnType;
@@ -38,15 +50,15 @@ public class EvalJavaScript implements EvalScript {
     }
 
     @Override
-    public void init(String name, String body) {
+    public void init(String name, String body, ConfigReader configReader) {
         this.functionName = name;
         if (returnType == null) {
-            throw new ExecutionPlanCreationException("Cannot find the return type of the function " + functionName);
+            throw new SiddhiAppCreationException("Cannot find the return type of the function " + functionName);
         }
         try {
             engine.eval("function " + name + "(data)" + "{" + body + "}");
         } catch (ScriptException e) {
-            throw new ExecutionPlanCreationException("Compilation Failure of the JavaScript Function " + name, e);
+            throw new SiddhiAppCreationException("Compilation Failure of the JavaScript Function " + name, e);
         }
     }
 
@@ -71,7 +83,7 @@ public class EvalJavaScript implements EvalScript {
             engine.eval(jsArray.toString());
             return engine.eval(name + "(data);");
         } catch (ScriptException e) {
-            throw new ExecutionPlanRuntimeException("Error evaluating JavaScript Function " + name, e);
+            throw new SiddhiAppRuntimeException("Error evaluating JavaScript Function " + name, e);
         }
     }
 

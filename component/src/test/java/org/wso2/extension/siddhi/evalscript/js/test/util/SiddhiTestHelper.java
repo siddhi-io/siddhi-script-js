@@ -16,12 +16,13 @@
  * under the License.
  */
 
-package org.wso2.extension.siddhi.evalscript.js.test.util;
+package org.wso2.extension.siddhi.script.js.test.util;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class SiddhiTestHelper {
-    public static void waitForEvents(long sleepTime, int expectedCount, AtomicInteger actualCount, long timeout) throws InterruptedException {
+    public static void waitForEvents(long sleepTime, int expectedCount, AtomicInteger actualCount, long timeout)
+            throws InterruptedException {
         long currentWaitTime = 0;
         long startTime = System.currentTimeMillis();
         while ((actualCount.get() < expectedCount) && (currentWaitTime <= timeout)) {
