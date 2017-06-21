@@ -1,1 +1,1 @@
-# siddhi-evalscript-js
+# siddhi-script-js

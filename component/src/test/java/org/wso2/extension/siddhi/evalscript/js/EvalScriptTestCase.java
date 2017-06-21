@@ -16,13 +16,13 @@
  * under the License.
  */
 
-package org.wso2.extension.siddhi.evalscript.js;
+package org.wso2.extension.siddhi.script.js;
 
 import org.apache.log4j.Logger;
 import org.testng.AssertJUnit;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.wso2.extension.siddhi.evalscript.js.test.util.SiddhiTestHelper;
+import org.wso2.extension.siddhi.script.js.test.util.SiddhiTestHelper;
 import org.wso2.siddhi.core.SiddhiAppRuntime;
 import org.wso2.siddhi.core.SiddhiManager;
 import org.wso2.siddhi.core.event.Event;
@@ -50,7 +50,7 @@ public class EvalScriptTestCase {
         log.info("testEvalJavaScriptConcat");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-//        siddhiManager.setExtension("evalscriptcript:javascript", EvalJavaScript.class);
+//        siddhiManager.setExtension("scriptcript:javascript", EvalJavaScript.class);
 
         String concatFunc = "define function concatJ[JavaScript] return string {\n" +
                 "  var str1 = data[0];\n" +
@@ -93,7 +93,7 @@ public class EvalScriptTestCase {
         log.info("testJavaScriptCompilationFailure");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("evalscript:javascript", EvalJavaScript.class);
+        siddhiManager.setExtension("script:javascript", EvalJavaScript.class);
 
         String concatFunc = "define function concatJ[JavaScript] return string {\n" +
                 "  var str1 = data[0;\n" +
@@ -113,7 +113,7 @@ public class EvalScriptTestCase {
         log.info("testUseUndefinedFunction");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("evalscript:javascript", EvalJavaScript.class);
+        siddhiManager.setExtension("script:javascript", EvalJavaScript.class);
         String cseEventStream = "define stream cseEventStream (symbol string, price float, volume long);";
         String query = ("@info(name = 'query1') from cseEventStream select price , " +
                 "undefinedFunc(symbol,' ',price) as concatStr " +

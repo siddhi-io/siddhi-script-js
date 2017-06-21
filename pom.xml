@@ -26,8 +26,8 @@
         <version>5</version>
     </parent>
 
-    <groupId>org.wso2.extension.siddhi.evalscript.js</groupId>
-    <artifactId>siddhi-execution-evalscript-js-parent</artifactId>
+    <groupId>org.wso2.extension.siddhi.script.js</groupId>
+    <artifactId>siddhi-script-js-parent</artifactId>
     <version>4.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Siddhi Eval Script Extension - JS Aggregator Pom</name>
@@ -56,9 +56,9 @@
     </properties>
 
     <scm>
-        <connection>scm:git:https://github.com/wso2-extensions/siddhi-evalscript-js.git</connection>
-        <url>https://github.com/wso2-extensions/siddhi-evalscript-js.git</url>
-        <developerConnection>scm:git:https://github.com/wso2-extensions/siddhi-evalscript-js.git
+        <connection>scm:git:https://github.com/wso2-extensions/siddhi-script-js.git</connection>
+        <url>https://github.com/wso2-extensions/siddhi-script-js.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-extensions/siddhi-script-js.git
         </developerConnection>
         <tag>HEAD</tag>
     </scm>
