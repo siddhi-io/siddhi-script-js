@@ -43,7 +43,7 @@ public class EvalJavaScript extends Script {
 
     private ScriptEngine engine;
     private Attribute.Type returnType;
-    String functionName;
+    private String functionName;
 
     public EvalJavaScript() {
         engine = new ScriptEngineManager().getEngineByName("JavaScript");
