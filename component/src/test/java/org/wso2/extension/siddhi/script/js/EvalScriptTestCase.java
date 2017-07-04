@@ -50,7 +50,7 @@ public class EvalScriptTestCase {
         log.info("testEvalJavaScriptConcat");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-//        siddhiManager.setExtension("scriptcript:javascript", EvalJavaScript.class);
+        siddhiManager.setExtension("script:javascript", EvalJavaScript.class);
 
         String concatFunc = "define function concatJ[JavaScript] return string {\n" +
                 "  var str1 = data[0];\n" +
