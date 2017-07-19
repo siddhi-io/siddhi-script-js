@@ -45,9 +45,9 @@
     </profiles>
 
     <properties>
-        <siddhi.version>4.0.0-M13</siddhi.version>
-        <scala.version>2.11.0</scala.version>
-        <scalascriptengine.version>1.3.10</scalascriptengine.version>
+        <siddhi.version>4.0.0-M21-SNAPSHOT</siddhi.version>
+        <scala.version>2.12.0</scala.version>
+        <scalascriptengine.version>1.3.11</scalascriptengine.version>
         <testng.version>6.8</testng.version>
 
         <mavan.findbugsplugin.exclude.file>findbugs-exclude.xml</mavan.findbugsplugin.exclude.file>
@@ -72,7 +72,7 @@
             </dependency>
             <dependency>
                 <groupId>com.googlecode.scalascriptengine</groupId>
-                <artifactId>scalascriptengine_2.11</artifactId>
+                <artifactId>scalascriptengine_2.12</artifactId>
                 <version>${scalascriptengine.version}</version>
             </dependency>
             <dependency>
@@ -137,6 +137,18 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.wso2.siddhi</groupId>
+                <artifactId>siddhi-doc-gen</artifactId>
+                <version>${siddhi.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate-md-docs</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
 

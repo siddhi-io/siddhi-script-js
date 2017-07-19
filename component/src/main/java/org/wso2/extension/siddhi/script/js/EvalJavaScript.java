@@ -37,7 +37,12 @@ import javax.script.ScriptException;
         name = "javascript",
         namespace = "script",
         description = "Evaluate javascript functions",
-        examples = @Example(description = "TBD", syntax = "TBD")
+        examples = @Example(
+                description = "This JS function will consume 3 var variables, concatenate them and will" +
+                " return as a string",
+                syntax = "define function concatJ[JavaScript] return string {\"  " +
+                "var str1 = data[0];\n var str2 = data[1];\n var str3 = data[2];\n " +
+                "var res = str1.concat(str2,str3);\n return res;\n};")
 )
 public class EvalJavaScript extends Script {
 

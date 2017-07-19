@@ -28,7 +28,7 @@
 
     <artifactId>siddhi-script-js</artifactId>
     <packaging>bundle</packaging>
-    <name>Siddhi Eval Script Extension - Js</name>
+    <name>Siddhi Script Extension - Js</name>
 
     <dependencies>
         <dependency>
