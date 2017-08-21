@@ -20,6 +20,8 @@ package org.wso2.extension.siddhi.script.js;
 
 import org.wso2.siddhi.annotation.Example;
 import org.wso2.siddhi.annotation.Extension;
+import org.wso2.siddhi.annotation.ReturnAttribute;
+import org.wso2.siddhi.annotation.util.DataType;
 import org.wso2.siddhi.core.exception.SiddhiAppCreationException;
 import org.wso2.siddhi.core.exception.SiddhiAppRuntimeException;
 import org.wso2.siddhi.core.function.Script;
@@ -36,9 +38,20 @@ import javax.script.ScriptException;
 @Extension(
         name = "javascript",
         namespace = "script",
-        description = "Evaluate javascript functions",
-        examples = @Example(description = "TBD", syntax = "TBD")
+        description = "This extension allows you to include JavaScript functions within the Siddhi Query Language.",
+        examples = @Example(
+                description = "This JS function will consume 3 var variables, concatenate them and will" +
+                        " return as a string",
+                syntax = "define function concatJ[JavaScript] return string {\"  " +
+                        "var str1 = data[0];\n var str2 = data[1];\n var str3 = data[2];\n " +
+                        "var res = str1.concat(str2,str3);\n return res;\n};"),
+        returnAttributes = @ReturnAttribute(name = "returnType", description = "return type of the function",
+                type = DataType.STRING)
+
 )
+/**
+ * This class is for evaluate javascript
+ **/
 public class EvalJavaScript extends Script {
 
     private ScriptEngine engine;
