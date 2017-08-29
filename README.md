@@ -44,6 +44,9 @@ directory.
 | master  | [![Build Status](https://wso2.org/jenkins/view/All%20Builds/job/siddhi/job/siddhi-script-js/badge/icon)](https://wso2.org/jenkins/view/All%20Builds/job/siddhi/job/siddhi-script-js/) |
 ---
 
+## Features
+
+* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-script-js/api/4.0.2-SNAPSHOT/#javascript-script">javascript</a> *(<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#scripts">Script</a>)*<br><div style="padding-left: 1em;"><p>This extension allows you to include JavaScript functions within the Siddhi Query Language.</p></div>
 
 ## How to Contribute
  
