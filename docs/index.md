@@ -31,7 +31,7 @@ directory.
 ```
      <dependency>
         <groupId>org.wso2.extension.siddhi.script-js</groupId>
-        <artifactId>siddhi-script-js-parent</artifactId>
+        <artifactId>siddhi-script-js</artifactId>
         <version>x.x.x</version>
      </dependency>
 ```
@@ -39,9 +39,11 @@ directory.
 ## Jenkins Build Status
 
 ---
+
 |  Branch | Build Status |
 | :------ |:------------ | 
 | master  | [![Build Status](https://wso2.org/jenkins/view/All%20Builds/job/siddhi/job/siddhi-script-js/badge/icon)](https://wso2.org/jenkins/view/All%20Builds/job/siddhi/job/siddhi-script-js/) |
+
 ---
 
 ## Features
