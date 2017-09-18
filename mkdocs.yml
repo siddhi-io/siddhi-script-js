@@ -11,7 +11,7 @@ extra:
     accent: teal
 pages:
 - Welcome to Siddhi Script Extension - Js: index.md
-- License: license.md
 - API Docs:
   - 4.0.2-SNAPSHOT: api/4.0.2-SNAPSHOT.md
+- License: license.md
 theme: material
