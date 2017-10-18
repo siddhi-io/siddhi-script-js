@@ -41,6 +41,29 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>documentation-deploy</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.wso2.siddhi</groupId>
+                        <artifactId>siddhi-doc-gen</artifactId>
+                        <version>${siddhi.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>deploy-mkdocs-github-pages</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -86,10 +109,22 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.wso2.siddhi</groupId>
+                <artifactId>siddhi-doc-gen</artifactId>
+                <version>${siddhi.version}</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>generate-md-docs</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <properties>
-        <text.mapper.version>4.0.0-M5</text.mapper.version>
         <mavan.findbugsplugin.exclude.file>../findbugs-exclude.xml</mavan.findbugsplugin.exclude.file>
     </properties>
 </project>
