@@ -12,7 +12,7 @@ extra:
 pages:
 - Welcome to Siddhi Script Extension - Js: index.md
 - API Docs:
-  - 4.0.2-SNAPSHOT: api/4.0.2-SNAPSHOT.md
-  - 4.0.3-SNAPSHOT: api/4.0.3-SNAPSHOT.md
+  - 4.0.4: api/4.0.4.md
+  - latest: api/latest.md
 - License: license.md
 theme: material
