@@ -12,6 +12,7 @@ extra:
 pages:
 - Welcome to Siddhi Script Extension - Js: index.md
 - API Docs:
+  - 4.0.6: api/4.0.6.md
   - 4.0.5: api/4.0.5.md
   - 4.0.4: api/4.0.4.md
   - latest: api/latest.md
