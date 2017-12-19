@@ -44,7 +44,7 @@
     </profiles>
 
     <properties>
-        <siddhi.version>4.0.0-beta15</siddhi.version>
+        <siddhi.version>4.0.4</siddhi.version>
         <scala.version>2.12.0</scala.version>
         <scalascriptengine.version>1.3.11</scalascriptengine.version>
         <testng.version>6.8</testng.version>
