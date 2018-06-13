@@ -27,7 +27,7 @@
 
     <groupId>org.wso2.extension.siddhi.script.js</groupId>
     <artifactId>siddhi-script-js-parent</artifactId>
-    <version>4.0.9-SNAPSHOT</version>
+    <version>4.0.9</version>
     <packaging>pom</packaging>
     <name>Siddhi Script Extension - JS Aggregator Pom</name>
 
@@ -60,7 +60,7 @@
         <url>https://github.com/wso2-extensions/siddhi-script-js.git</url>
         <developerConnection>scm:git:https://github.com/wso2-extensions/siddhi-script-js.git
         </developerConnection>
-        <tag>HEAD</tag>
+        <tag>v4.0.9</tag>
     </scm>
 
     <dependencyManagement>
