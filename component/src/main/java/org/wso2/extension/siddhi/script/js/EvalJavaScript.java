@@ -62,7 +62,6 @@ public class EvalJavaScript extends Script {
 
     private NashornScriptEngine engine;
     private Attribute.Type returnType;
-    private String functionName;
 
     public EvalJavaScript() {
         this.engine = (NashornScriptEngine) SCRIPT_ENGINE_FACTORY.getScriptEngine();
@@ -70,9 +69,8 @@ public class EvalJavaScript extends Script {
 
     @Override
     public void init(String name, String body, ConfigReader configReader) {
-        this.functionName = name;
         if (returnType == null) {
-            throw new SiddhiAppCreationException("Cannot find the return type of the function " + functionName);
+            throw new SiddhiAppCreationException("Cannot find the return type of the function " + name);
         }
         Bindings engineBindings = new SimpleBindings();
         engineBindings.put(ScriptEngine.FILENAME, name);
