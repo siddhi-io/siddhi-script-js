@@ -18,6 +18,8 @@
 
 package org.wso2.extension.siddhi.script.js;
 
+import jdk.nashorn.api.scripting.NashornScriptEngine;
+import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
 import org.wso2.siddhi.annotation.Example;
 import org.wso2.siddhi.annotation.Extension;
 import org.wso2.siddhi.annotation.ReturnAttribute;
@@ -28,9 +30,11 @@ import org.wso2.siddhi.core.function.Script;
 import org.wso2.siddhi.core.util.config.ConfigReader;
 import org.wso2.siddhi.query.api.definition.Attribute;
 
+import javax.script.Bindings;
+import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import javax.script.SimpleBindings;
 
 /**
  * This class is for evaluate javascript
@@ -54,12 +58,14 @@ import javax.script.ScriptException;
  **/
 public class EvalJavaScript extends Script {
 
-    private ScriptEngine engine;
+    private static final NashornScriptEngineFactory SCRIPT_ENGINE_FACTORY = new NashornScriptEngineFactory();
+
+    private NashornScriptEngine engine;
     private Attribute.Type returnType;
     private String functionName;
 
     public EvalJavaScript() {
-        engine = new ScriptEngineManager().getEngineByName("JavaScript");
+        this.engine = (NashornScriptEngine) SCRIPT_ENGINE_FACTORY.getScriptEngine();
     }
 
     @Override
@@ -68,6 +74,9 @@ public class EvalJavaScript extends Script {
         if (returnType == null) {
             throw new SiddhiAppCreationException("Cannot find the return type of the function " + functionName);
         }
+        Bindings engineBindings = new SimpleBindings();
+        engineBindings.put(ScriptEngine.FILENAME, name);
+        this.engine.setBindings(engineBindings, ScriptContext.ENGINE_SCOPE);
         try {
             engine.eval("function " + name + "(data)" + "{" + body + "}");
         } catch (ScriptException e) {
@@ -77,26 +86,12 @@ public class EvalJavaScript extends Script {
 
     @Override
     public Object eval(String name, Object[] args) {
-        StringBuilder jsArray = new StringBuilder("var data = [");
-        for (int i = 0; i < args.length - 1; i++) {
-            if (args[i] instanceof String) {
-                jsArray.append("\"").append(args[i].toString()).append("\"");
-            } else {
-                jsArray.append(args[i].toString());
-            }
-            jsArray.append(",");
-        }
-        if (args[args.length - 1] instanceof String) {
-            jsArray.append("\"").append(args[args.length - 1].toString()).append("\"");
-        } else {
-            jsArray.append(args[args.length - 1].toString());
-        }
-        jsArray.append("]");
         try {
-            engine.eval(jsArray.toString());
-            return engine.eval(name + "(data);");
+            return engine.invokeFunction(name, args, null);
         } catch (ScriptException e) {
             throw new SiddhiAppRuntimeException("Error evaluating JavaScript Function " + name, e);
+        } catch (NoSuchMethodException e) {
+            throw new SiddhiAppRuntimeException("Cannot evaluate non-existing JavaScript Function " + name, e);
         }
     }
 
