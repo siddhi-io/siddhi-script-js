@@ -2,57 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/api/4.0.12/</loc>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/api/4.0.11/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/api/4.0.10/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/api/4.0.9/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/api/4.0.8/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/api/4.0.7/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/api/4.0.6/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/api/4.0.5/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/api/4.0.4/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/api/latest/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/license/</loc>
-     <lastmod>2018-08-15</lastmod>
+     <lastmod>2018-09-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
