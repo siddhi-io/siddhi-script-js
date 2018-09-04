@@ -12,7 +12,7 @@ Find some useful links below:
 
 ## Latest API Docs
 
-Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-script-js/api/4.0.11">4.0.11</a>.
+Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-script-js/api/4.0.12">4.0.12</a>.
 
 ## How to use 
 
@@ -48,7 +48,7 @@ directory.
 
 ## Features
 
-* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-script-js/api/4.0.11/#javascript-script">javascript</a> *<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#script">(Script)</a>*<br><div style="padding-left: 1em;"><p>This extension allows you to include JavaScript functions within the Siddhi Query Language.</p></div>
+* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-script-js/api/4.0.12/#javascript-script">javascript</a> *<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#script">(Script)</a>*<br><div style="padding-left: 1em;"><p>This extension allows you to include JavaScript functions within the Siddhi Query Language.</p></div>
 
 ## How to Contribute
  
