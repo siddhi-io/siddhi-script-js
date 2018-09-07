@@ -30,7 +30,7 @@ directory.
 
 ```
      <dependency>
-        <groupId>org.wso2.extension.siddhi.script-js</groupId>
+        <groupId>org.wso2.extension.siddhi.script.js</groupId>
         <artifactId>siddhi-script-js</artifactId>
         <version>x.x.x</version>
      </dependency>
