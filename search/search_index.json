@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "siddhi-script-js\n\n\nThe \nsiddhi-script-js\n is an extension to \nSiddhi\n that \nallows to include JavaScript functions within the Siddhi Query Language. \n\n\nFind some useful links below:\n\n\n\n\nSource code\n\n\nReleases\n\n\nIssue tracker\n\n\n\n\nLatest API Docs\n\n\nLatest API Docs is \n4.0.15\n.\n\n\nHow to use\n\n\nUsing the extension in \nWSO2 Stream Processor\n\n\n\n\n\n\nYou can use this extension in the latest \nWSO2 Stream Processor\n that is a part of \nWSO2 Analytics\n offering, with editor, debugger and simulation support. \n\n\n\n\n\n\nThis extension is shipped by default with WSO2 Stream Processor, if you wish to use an alternative version of this \nextension you can replace the component \njar\n that can be found in the \nSTREAM_PROCESSOR_HOME\n/lib\n \ndirectory.\n\n\n\n\n\n\nUsing the extension as a \njava library\n\n\n\n\nThis extension can be added as a maven dependency along with other Siddhi dependencies to your project.\n\n\n\n\n     \ndependency\n\n        \ngroupId\norg.wso2.extension.siddhi.script.js\n/groupId\n\n        \nartifactId\nsiddhi-script-js\n/artifactId\n\n        \nversion\nx.x.x\n/version\n\n     \n/dependency\n\n\n\n\n\n\nJenkins Build Status\n\n\n\n\n\n\n\n\n\n\nBranch\n\n\nBuild Status\n\n\n\n\n\n\n\n\n\n\nmaster\n\n\n\n\n\n\n\n\n\n\n\n\nFeatures\n\n\n\n\njavascript\n \n(Script)\nThis extension allows you to include JavaScript functions within the Siddhi Query Language.\n\n\n\n\nHow to Contribute\n\n\n\n\n\n\nPlease report issues at \nGitHub \n  Issue Tracker\n.\n\n\n\n\n\n\nSend your contributions as pull requests to \nmaster branch\n. \n\n\n\n\n\n\nContact us\n\n\n\n\n\n\nPost your questions with the \n\"Siddhi\"\n tag in \nStackoverflow\n. \n\n\n\n\n\n\nSiddhi developers can be contacted via the mailing lists:\n\n\nDevelopers List   : \ndev@wso2.org\n\n\nArchitecture List : \narchitecture@wso2.org\n\n\n\n\n\n\nSupport\n\n\n\n\n\n\nWe are committed to ensuring support for this extension in production. Our unique approach ensures that all support leverages our open development methodology and is provided by the very same engineers who build the technology. \n\n\n\n\n\n\nFor more details and to take advantage of this unique opportunity contact us via \nhttp://wso2.com/support/\n.", 
+            "text": "siddhi-script-js\n\n\nThe \nsiddhi-script-js\n is an extension to \nSiddhi\n that \nallows to include JavaScript functions within the Siddhi Query Language. \n\n\nFind some useful links below:\n\n\n\n\nSource code\n\n\nReleases\n\n\nIssue tracker\n\n\n\n\nLatest API Docs\n\n\nLatest API Docs is \n4.0.16\n.\n\n\nHow to use\n\n\nUsing the extension in \nWSO2 Stream Processor\n\n\n\n\n\n\nYou can use this extension in the latest \nWSO2 Stream Processor\n that is a part of \nWSO2 Analytics\n offering, with editor, debugger and simulation support. \n\n\n\n\n\n\nThis extension is shipped by default with WSO2 Stream Processor, if you wish to use an alternative version of this \nextension you can replace the component \njar\n that can be found in the \nSTREAM_PROCESSOR_HOME\n/lib\n \ndirectory.\n\n\n\n\n\n\nUsing the extension as a \njava library\n\n\n\n\nThis extension can be added as a maven dependency along with other Siddhi dependencies to your project.\n\n\n\n\n     \ndependency\n\n        \ngroupId\norg.wso2.extension.siddhi.script.js\n/groupId\n\n        \nartifactId\nsiddhi-script-js\n/artifactId\n\n        \nversion\nx.x.x\n/version\n\n     \n/dependency\n\n\n\n\n\n\nJenkins Build Status\n\n\n\n\n\n\n\n\n\n\nBranch\n\n\nBuild Status\n\n\n\n\n\n\n\n\n\n\nmaster\n\n\n\n\n\n\n\n\n\n\n\n\nFeatures\n\n\n\n\njavascript\n \n(Script)\nThis extension allows you to include JavaScript functions within the Siddhi Query Language.\n\n\n\n\nHow to Contribute\n\n\n\n\n\n\nPlease report issues at \nGitHub \n  Issue Tracker\n.\n\n\n\n\n\n\nSend your contributions as pull requests to \nmaster branch\n. \n\n\n\n\n\n\nContact us\n\n\n\n\n\n\nPost your questions with the \n\"Siddhi\"\n tag in \nStackoverflow\n. \n\n\n\n\n\n\nSiddhi developers can be contacted via the mailing lists:\n\n\nDevelopers List   : \ndev@wso2.org\n\n\nArchitecture List : \narchitecture@wso2.org\n\n\n\n\n\n\nSupport\n\n\n\n\n\n\nWe are committed to ensuring support for this extension in production. Our unique approach ensures that all support leverages our open development methodology and is provided by the very same engineers who build the technology. \n\n\n\n\n\n\nFor more details and to take advantage of this unique opportunity contact us via \nhttp://wso2.com/support/\n.", 
             "title": "Welcome"
         }, 
         {
@@ -12,7 +12,7 @@
         }, 
         {
             "location": "/#latest-api-docs", 
-            "text": "Latest API Docs is  4.0.15 .", 
+            "text": "Latest API Docs is  4.0.16 .", 
             "title": "Latest API Docs"
         }, 
         {
@@ -44,6 +44,26 @@
             "location": "/#support", 
             "text": "We are committed to ensuring support for this extension in production. Our unique approach ensures that all support leverages our open development methodology and is provided by the very same engineers who build the technology.     For more details and to take advantage of this unique opportunity contact us via  http://wso2.com/support/ .", 
             "title": "Support"
+        }, 
+        {
+            "location": "/api/4.0.16/", 
+            "text": "API Docs - v4.0.16\n\n\nScript\n\n\njavascript \n(Script)\n\n\nThis extension allows you to include JavaScript functions within the Siddhi Query Language.\n\n\n\nSyntax\n\n\ndefine function \nFunctionName\n[javascript] return \ntype\n {\n    // Script code\n};\n\n\n\n\n\nExamples\n\n\nEXAMPLE 1\n\n\ndefine function concatJ[JavaScript] return string {\n  var str1 = data[0];\n var str2 = data[1];\n var str3 = data[2];\n var res = str1.concat(str2,str3);\n return res;\n};\n\n\n\n\n\nThis JS function will consume 3 var variables, concatenate them and will return as a string", 
+            "title": "4.0.16"
+        }, 
+        {
+            "location": "/api/4.0.16/#api-docs-v4016", 
+            "text": "", 
+            "title": "API Docs - v4.0.16"
+        }, 
+        {
+            "location": "/api/4.0.16/#script", 
+            "text": "", 
+            "title": "Script"
+        }, 
+        {
+            "location": "/api/4.0.16/#javascript-script", 
+            "text": "This extension allows you to include JavaScript functions within the Siddhi Query Language.  Syntax  define function  FunctionName [javascript] return  type  {\n    // Script code\n};  Examples  EXAMPLE 1  define function concatJ[JavaScript] return string {   var str1 = data[0];\n var str2 = data[1];\n var str3 = data[2];\n var res = str1.concat(str2,str3);\n return res;\n};  This JS function will consume 3 var variables, concatenate them and will return as a string", 
+            "title": "javascript (Script)"
         }, 
         {
             "location": "/api/4.0.15/", 
@@ -287,13 +307,13 @@
         }, 
         {
             "location": "/api/latest/", 
-            "text": "API Docs - v4.0.15\n\n\nScript\n\n\njavascript \n(Script)\n\n\nThis extension allows you to include JavaScript functions within the Siddhi Query Language.\n\n\n\nSyntax\n\n\ndefine function \nFunctionName\n[javascript] return \ntype\n {\n    // Script code\n};\n\n\n\n\n\nExamples\n\n\nEXAMPLE 1\n\n\ndefine function concatJ[JavaScript] return string {\n  var str1 = data[0];\n var str2 = data[1];\n var str3 = data[2];\n var res = str1.concat(str2,str3);\n return res;\n};\n\n\n\n\n\nThis JS function will consume 3 var variables, concatenate them and will return as a string", 
+            "text": "API Docs - v4.0.16\n\n\nScript\n\n\njavascript \n(Script)\n\n\nThis extension allows you to include JavaScript functions within the Siddhi Query Language.\n\n\n\nSyntax\n\n\ndefine function \nFunctionName\n[javascript] return \ntype\n {\n    // Script code\n};\n\n\n\n\n\nExamples\n\n\nEXAMPLE 1\n\n\ndefine function concatJ[JavaScript] return string {\n  var str1 = data[0];\n var str2 = data[1];\n var str3 = data[2];\n var res = str1.concat(str2,str3);\n return res;\n};\n\n\n\n\n\nThis JS function will consume 3 var variables, concatenate them and will return as a string", 
             "title": "latest"
         }, 
         {
-            "location": "/api/latest/#api-docs-v4015", 
+            "location": "/api/latest/#api-docs-v4016", 
             "text": "", 
-            "title": "API Docs - v4.0.15"
+            "title": "API Docs - v4.0.16"
         }, 
         {
             "location": "/api/latest/#script", 
