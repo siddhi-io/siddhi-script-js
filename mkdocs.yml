@@ -20,11 +20,9 @@ extra:
     link: https://www.linkedin.com/groups/13553064
 markdown_extensions:
 - admonition
-- toc:
-    permalink: True
-- codehilite:
-    guess_lang: False
-nav:
+- toc(permalink=true)
+- codehilite(guess_lang=false)
+pages:
 - Welcome: index.md
 - API Docs:
   - 4.0.16: api/4.0.16.md
