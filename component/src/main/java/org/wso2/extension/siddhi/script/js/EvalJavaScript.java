@@ -18,17 +18,17 @@
 
 package org.wso2.extension.siddhi.script.js;
 
+import io.siddhi.annotation.Example;
+import io.siddhi.annotation.Extension;
+import io.siddhi.annotation.ReturnAttribute;
+import io.siddhi.annotation.util.DataType;
+import io.siddhi.core.exception.SiddhiAppCreationException;
+import io.siddhi.core.exception.SiddhiAppRuntimeException;
+import io.siddhi.core.function.Script;
+import io.siddhi.core.util.config.ConfigReader;
+import io.siddhi.query.api.definition.Attribute;
 import jdk.nashorn.api.scripting.NashornScriptEngine;
 import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
-import org.wso2.siddhi.annotation.Example;
-import org.wso2.siddhi.annotation.Extension;
-import org.wso2.siddhi.annotation.ReturnAttribute;
-import org.wso2.siddhi.annotation.util.DataType;
-import org.wso2.siddhi.core.exception.SiddhiAppCreationException;
-import org.wso2.siddhi.core.exception.SiddhiAppRuntimeException;
-import org.wso2.siddhi.core.function.Script;
-import org.wso2.siddhi.core.util.config.ConfigReader;
-import org.wso2.siddhi.query.api.definition.Attribute;
 
 import javax.script.Bindings;
 import javax.script.ScriptContext;
@@ -53,9 +53,6 @@ import javax.script.SimpleBindings;
                 type = DataType.STRING)
 
 )
-/**
- * This class is for evaluate javascript
- **/
 public class EvalJavaScript extends Script {
 
     private static final NashornScriptEngineFactory SCRIPT_ENGINE_FACTORY = new NashornScriptEngineFactory();
