@@ -25,7 +25,7 @@
         <version>5</version>
     </parent>
 
-    <groupId>org.wso2.extension.siddhi.script.js</groupId>
+    <groupId>io.siddhi.extension.script.js</groupId>
     <artifactId>siddhi-script-js-parent</artifactId>
     <version>5.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>

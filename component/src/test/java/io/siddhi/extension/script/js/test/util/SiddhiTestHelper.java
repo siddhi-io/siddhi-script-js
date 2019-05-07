@@ -16,7 +16,7 @@
  * under the License.
  */
 
-package org.wso2.extension.siddhi.script.js.test.util;
+package io.siddhi.extension.script.js.test.util;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
