@@ -16,7 +16,7 @@
  * under the License.
  */
 
-package org.wso2.extension.siddhi.script.js;
+package io.siddhi.extension.script.js;
 
 import io.siddhi.annotation.Example;
 import io.siddhi.annotation.Extension;
