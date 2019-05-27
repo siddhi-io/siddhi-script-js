@@ -2,102 +2,107 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2-extensions.github.io/siddhi-script-js/api/5.0.1/</loc>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/5.0.0/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.1.1/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.1.0/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.17/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.16/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.15/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.14/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.13/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.12/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.11/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.10/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.9/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.8/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.7/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.6/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.5/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/4.0.4/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/api/latest/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-script-js/license/</loc>
-     <lastmod>2019-04-24</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
