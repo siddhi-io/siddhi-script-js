@@ -2,7 +2,7 @@
 
 ## Script
 
-### javascript *<a target="_blank" href="http://siddhi.io/documentation/siddhi-5.x/query-guide-5.x/#script">(Script)</a>*
+### javascript *<a target="_blank" href="https://siddhi.io/en/v5.0/docs/query-guide/#script">(Script)</a>*
 
 <p style="word-wrap: break-word">This extension allows you to include JavaScript functions within the Siddhi Query Language.</p>
 
