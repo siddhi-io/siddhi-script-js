@@ -1,13 +1,71 @@
 site_name: Siddhi Script JS
 site_description: Siddhi Script JS Extension
+repo_name: Siddhi Script JS
+repo_url: https://github.com/siddhi-io/siddhi-script-js/
+edit_uri: https://github.com/siddhi-io/siddhi-script-js/blob/master/
+copyright: Siddhi - Documentation
+theme:
+  name: material
+  logo: images/siddhi-logo.svg
+  favicon: images/favicon.ico
+  palette:
+    primary: teal
+    accent: teal
+extra_css:
+  - assets/stylesheets/extra.css
+extra_javascript:
+  - assets/javascripts/extra.js
+extra:
+  social:
+    - type: github
+      link: https://github.com/siddhi-io/siddhi
+    - type: medium
+      link: https://medium.com/siddhi-io
+    - type: twitter
+      link: https://twitter.com/siddhi_io
+    - type: linkedin
+      link: https://www.linkedin.com/groups/13553064
+google_analytics:
+  - UA-103065-28
+  - auto
+markdown_extensions:
+  - markdown.extensions.admonition
+pages:
+  - Information: index.md
+  - API Docs:
+      - latest: api/latest.md
+      - 5.0.1: api/5.0.1.md
+      - 5.0.0: api/5.0.0.md
+      - 4.1.1: api/4.1.1.md
+      - 4.1.0: api/4.1.0.md
+      - 4.0.17: api/4.0.17.md
+      - 4.0.16: api/4.0.16.md
+      - 4.0.15: api/4.0.15.md
+      - 4.0.14: api/4.0.14.md
+      - 4.0.13: api/4.0.13.md
+      - 4.0.12: api/4.0.12.md
+      - 4.0.11: api/4.0.11.md
+      - 4.0.10: api/4.0.10.md
+      - 4.0.9: api/4.0.9.md
+      - 4.0.8: api/4.0.8.md
+      - 4.0.7: api/4.0.7.md
+      - 4.0.6: api/4.0.6.md
+      - 4.0.5: api/4.0.5.md
+      - 4.0.4: api/4.0.4.md
+  - License: license.md
+
+
+
+site_name: Siddhi Script JS
+site_description: Siddhi Script JS Extension
 site_author: WSO2
-site_url: https://wso2-extensions.github.io/siddhi-script-js/
+site_url: https://siddhi-io.github.io/siddhi-script-js/
 extra_css:
 - stylesheets/extra.css
 extra_javascript:
 - javascripts/extra.js
 repo_name: Siddhi-Script-JS
-repo_url: https://github.com/wso2-extensions/siddhi-script-js
+repo_url: https://github.com/siddhi-io/siddhi-script-js
 copyright: Copyright &copy; 2011 - 2018 WSO2
 google_analytics:
 - UA-103065-28
