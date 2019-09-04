@@ -44,7 +44,7 @@ import javax.script.ScriptException;
 import static io.siddhi.query.api.definition.Attribute.Type.STRING;
 
 /**
- * eval(string, dataType)
+ * eval(expression, dataType)
  * Evaluate the string and return output as dataType
  * Accept Type(s): (STRING, STRING)
  * Return Type(s): STRING/INT/LONG/FLOAT/DOUBLE/BOOL
@@ -52,7 +52,7 @@ import static io.siddhi.query.api.definition.Attribute.Type.STRING;
 @Extension(
         name = "eval",
         namespace = "script",
-        description = "This extension evaluated a given string and " +
+        description = "This extension evaluates a given string and " +
                 "return the output according to the user specified data type.",
         parameters = {
                 @Parameter(name = "expression",
@@ -110,7 +110,9 @@ public class EvalFunctionExtension extends FunctionExecutor {
                     "one of the supported data types "
                     + "(int, long, float, double, string, bool)");
         } else {
-            String type = attributeExpressionExecutors[1].execute(null).toString();
+            ConstantExpressionExecutor constantExpressionExecutor =
+                    (ConstantExpressionExecutor) attributeExpressionExecutors[1];
+            String type = String.valueOf(constantExpressionExecutor.getValue());
             switch (type.toLowerCase(Locale.ENGLISH)) {
                 case "int":
                     returnType = Attribute.Type.INT;

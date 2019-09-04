@@ -35,7 +35,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class EvalFunctionExtensionTestCase {
 
-    private static final Logger log = Logger.getLogger(EvalScriptTestCase.class);
+    private static final Logger log = Logger.getLogger(EvalFunctionExtensionTestCase.class);
     private AtomicInteger count = new AtomicInteger(0);
 
     @BeforeMethod
@@ -45,21 +45,17 @@ public class EvalFunctionExtensionTestCase {
 
     @Test
     public void testEvalArithmeticExpression() throws InterruptedException {
-
         log.info("testEvalArithmeticExpression testing an arithmetic expression evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
         siddhiManager.setExtension("script:eval", EvalFunctionExtension.class);
-
         String concatFunc = "";
-
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select script:eval(executionTemplate, 'int') as result " +
                 "insert into outputStream;");
         SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
                 concatFunc + cseEventStream + query);
-
         executionPlanRuntime.addCallback("query1", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -72,31 +68,26 @@ public class EvalFunctionExtensionTestCase {
 
         InputHandler inputHandler = executionPlanRuntime.getInputHandler("inputStream");
         executionPlanRuntime.start();
-
         inputHandler.send(new Object[]{"7 + 8 + 9"});
         SiddhiTestHelper.waitForEvents(100, 1, count, 60000);
         AssertJUnit.assertEquals(1, count.get());
-
         executionPlanRuntime.shutdown();
     }
 
     @Test
     public void testEvalLogicalExpression() throws InterruptedException {
-
         log.info("testEvalArithmeticExpression testing a logical expression evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
         siddhiManager.setExtension("script:eval", EvalFunctionExtension.class);
-
         String concatFunc = "";
-
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select script:eval(executionTemplate, 'bool') as result " +
                 "insert into outputStream;");
+
         SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
                 concatFunc + cseEventStream + query);
-
         executionPlanRuntime.addCallback("query1", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -106,64 +97,51 @@ public class EvalFunctionExtensionTestCase {
                 count.incrementAndGet();
             }
         });
-
         InputHandler inputHandler = executionPlanRuntime.getInputHandler("inputStream");
         executionPlanRuntime.start();
-
         inputHandler.send(new Object[]{"7 > 100"});
         SiddhiTestHelper.waitForEvents(100, 1, count, 60000);
         AssertJUnit.assertEquals(1, count.get());
-
         executionPlanRuntime.shutdown();
     }
 
     @Test(expectedExceptions = SiddhiAppCreationException.class)
     public void testEvalInvalidArgument() throws InterruptedException {
-
         log.info("testEvalInvalidExpression testing an invalid argument evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
         siddhiManager.setExtension("script:eval", EvalFunctionExtension.class);
-
         String concatFunc = "";
-
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select script:eval(executionTemplate, 'str') as result " +
                 "insert into outputStream;");
+
         SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
                 concatFunc + cseEventStream + query);
-
         InputHandler inputHandler = executionPlanRuntime.getInputHandler("inputStream");
         executionPlanRuntime.start();
-
         inputHandler.send(new Object[]{"7 > 100 && 8 < 0"});
-
         executionPlanRuntime.shutdown();
     }
 
     @Test(expectedExceptions = SiddhiAppCreationException.class)
     public void testEvalInvalidNumberOfArguments() throws InterruptedException {
-
         log.info("testEvalInvalidExpression testing an invalid number of evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
         siddhiManager.setExtension("script:eval", EvalFunctionExtension.class);
-
         String concatFunc = "";
-
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select script:eval(executionTemplate) as result " +
                 "insert into outputStream;");
+
         SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
                 concatFunc + cseEventStream + query);
-
         InputHandler inputHandler = executionPlanRuntime.getInputHandler("inputStream");
         executionPlanRuntime.start();
-
         inputHandler.send(new Object[]{"7 > 100 && 8 < 0"});
-
         executionPlanRuntime.shutdown();
     }
 }
