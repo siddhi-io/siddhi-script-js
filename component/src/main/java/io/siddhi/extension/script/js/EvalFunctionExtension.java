@@ -56,17 +56,16 @@ import static io.siddhi.query.api.definition.Attribute.Type.STRING;
                 "return the output according to the user specified data type.",
         parameters = {
                 @Parameter(name = "expression",
-                        description = "The string with an logical or arithmetic expression.",
+                        description = "Any single line js expression or function.",
                         type = {DataType.STRING},
                         dynamic = true),
-                @Parameter(name = "data.type",
+                @Parameter(name = "return.type",
                         description = "The return type of the evaluated expression." +
-                                " Supported types are int/long/float/double/bool/string.",
-                        type = {DataType.STRING},
-                        dynamic = true),
+                                " Supported types are int|long|float|double|bool|string.",
+                        type = {DataType.STRING}),
         },
         parameterOverloads = {
-                @ParameterOverload(parameterNames = {"expression", "data.type"})
+                @ParameterOverload(parameterNames = {"expression", "return.type"})
         },
         returnAttributes =
         @ReturnAttribute(
@@ -133,8 +132,9 @@ public class EvalFunctionExtension extends FunctionExecutor {
                     returnType = Attribute.Type.STRING;
                     break;
                 default:
-                    throw new SiddhiAppValidationException("Type must be one of int, long, float, double, bool, " +
-                            "string");
+                    throw new SiddhiAppValidationException("Invalid return type found: Return types" +
+                            " supported by script:eval() function are int, long, float, double, bool " +
+                            "and string");
             }
         }
         engine = new ScriptEngineManager().getEngineByName(ENGINE_NAME);
