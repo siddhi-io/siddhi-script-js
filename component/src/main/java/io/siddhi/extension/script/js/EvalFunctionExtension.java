@@ -47,11 +47,11 @@ import static io.siddhi.query.api.definition.Attribute.Type.STRING;
  * eval(expression, dataType)
  * Evaluate the string and return output as dataType
  * Accept Type(s): (STRING, STRING)
- * Return Type(s): STRING/INT/LONG/FLOAT/DOUBLE/BOOL
+ * Return Type(s): STRING|INT|LONG|FLOAT|DOUBLE|BOOL
  */
 @Extension(
         name = "eval",
-        namespace = "script",
+        namespace = "js",
         description = "This extension evaluates a given string and " +
                 "return the output according to the user specified data type.",
         parameters = {
@@ -62,7 +62,8 @@ import static io.siddhi.query.api.definition.Attribute.Type.STRING;
                 @Parameter(name = "return.type",
                         description = "The return type of the evaluated expression." +
                                 " Supported types are int|long|float|double|bool|string.",
-                        type = {DataType.STRING}),
+                        type = {DataType.STRING}
+                        ),
         },
         parameterOverloads = {
                 @ParameterOverload(parameterNames = {"expression", "return.type"})
@@ -74,7 +75,7 @@ import static io.siddhi.query.api.definition.Attribute.Type.STRING;
                         DataType.STRING, DataType.BOOL, DataType.OBJECT}),
         examples =
         @Example(
-                syntax = "script:eval(\"700 > 800\", 'bool')",
+                syntax = "js:eval(\"700 > 800\", 'bool')",
                 description = "" +
                         "In this example, the expression 700 > 800 will be evaluated and " +
                         "return result as false because user specified return type as bool.")
@@ -93,49 +94,42 @@ public class EvalFunctionExtension extends FunctionExecutor {
 
         if (executorsCount != 2) {
             throw new SiddhiAppValidationException("Invalid number of arguments passed to "
-                    + "script:eval() function. Required exactly 2, but found " + executorsCount);
+                    + "js:eval() function. Required exactly 2, but found " + executorsCount);
         }
         ExpressionExecutor executor1 = expressionExecutors[0];
-        ExpressionExecutor executor2 = expressionExecutors[1];
 
         if (executor1.getReturnType() != STRING) {
             throw new SiddhiAppValidationException("Invalid parameter type found for the first argument of "
-                    + "script:eval()() function, required " + STRING.toString() + ", but found "
+                    + "js:eval()() function, required " + STRING.toString() + ", but found "
                     + executor1.getReturnType().toString());
 
         }
-        if (!(executor2 instanceof ConstantExpressionExecutor)) {
-            throw new SiddhiAppValidationException("The second argument has to be a string constant specifying " +
-                    "one of the supported data types "
-                    + "(int, long, float, double, string, bool)");
-        } else {
-            ConstantExpressionExecutor constantExpressionExecutor =
-                    (ConstantExpressionExecutor) attributeExpressionExecutors[1];
-            String type = String.valueOf(constantExpressionExecutor.getValue());
-            switch (type.toLowerCase(Locale.ENGLISH)) {
-                case "int":
-                    returnType = Attribute.Type.INT;
-                    break;
-                case "long":
-                    returnType = Attribute.Type.LONG;
-                    break;
-                case "float":
-                    returnType = Attribute.Type.FLOAT;
-                    break;
-                case "double":
-                    returnType = Attribute.Type.DOUBLE;
-                    break;
-                case "bool":
-                    returnType = Attribute.Type.BOOL;
-                    break;
-                case "string":
-                    returnType = Attribute.Type.STRING;
-                    break;
-                default:
-                    throw new SiddhiAppValidationException("Invalid return type found: Return types" +
-                            " supported by script:eval() function are int, long, float, double, bool " +
-                            "and string");
-            }
+        ConstantExpressionExecutor constantExpressionExecutor =
+                (ConstantExpressionExecutor) attributeExpressionExecutors[1];
+        String type = String.valueOf(constantExpressionExecutor.getValue());
+        switch (type.toLowerCase(Locale.ENGLISH)) {
+            case "int":
+                returnType = Attribute.Type.INT;
+                break;
+            case "long":
+                returnType = Attribute.Type.LONG;
+                break;
+            case "float":
+                returnType = Attribute.Type.FLOAT;
+                break;
+            case "double":
+                returnType = Attribute.Type.DOUBLE;
+                break;
+            case "bool":
+                returnType = Attribute.Type.BOOL;
+                break;
+            case "string":
+                returnType = Attribute.Type.STRING;
+                break;
+            default:
+                throw new SiddhiAppValidationException("Invalid return type found: Return types" +
+                        " supported by js:eval() function are int|long|float|double|bool " +
+                        "and string");
         }
         engine = new ScriptEngineManager().getEngineByName(ENGINE_NAME);
         return null;
@@ -145,11 +139,17 @@ public class EvalFunctionExtension extends FunctionExecutor {
     protected Object execute(Object[] objects, State state) {
         String expressionString = (String) objects[0];
         Object result;
+        if (engine ==  null) {
+            throw new SiddhiAppRuntimeException(
+                    "Error evaluating the given expression " + expressionString + " in js:eval(), " +
+                            "the script engine manager should not be null"
+            );
+        }
         try {
             result = engine.eval(expressionString);
         } catch (ScriptException | ParserException e) {
             throw new SiddhiAppRuntimeException(
-                    "Error evaluating the given script " + expressionString, e);
+                    "Error evaluating the given expression " + expressionString, e);
         }
         return result;
     }
