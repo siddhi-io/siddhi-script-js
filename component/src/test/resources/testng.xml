@@ -18,6 +18,7 @@ limitations under the License.
     <test name="Siddhi-script-js-tests" preserve-order="true" parallel="false">
         <classes>
             <class name="io.siddhi.extension.script.js.EvalScriptTestCase"/>
+            <class name="io.siddhi.extension.script.js.EvalFunctionExtensionTestCase"/>
         </classes>
     </test>
 </suite>
