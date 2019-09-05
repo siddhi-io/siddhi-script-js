@@ -48,11 +48,11 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalArithmeticExpression testing an arithmetic expression evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("script:eval", EvalFunctionExtension.class);
+        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
         String concatFunc = "";
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
-                " select script:eval(executionTemplate, 'int') as result " +
+                " select js:eval(executionTemplate, 'int') as result " +
                 "insert into outputStream;");
         SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
                 concatFunc + cseEventStream + query);
@@ -79,11 +79,11 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalArithmeticExpression testing a logical expression evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("script:eval", EvalFunctionExtension.class);
+        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
         String concatFunc = "";
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
-                " select script:eval(executionTemplate, 'bool') as result " +
+                " select js:eval(executionTemplate, 'bool') as result " +
                 "insert into outputStream;");
 
         SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
@@ -110,11 +110,11 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalInvalidExpression testing an invalid argument evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("script:eval", EvalFunctionExtension.class);
+        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
         String concatFunc = "";
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
-                " select script:eval(executionTemplate, 'str') as result " +
+                " select js:eval(executionTemplate, 'str') as result " +
                 "insert into outputStream;");
 
         SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
@@ -130,11 +130,11 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalInvalidExpression testing an invalid number of evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("script:eval", EvalFunctionExtension.class);
+        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
         String concatFunc = "";
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
-                " select script:eval(executionTemplate) as result " +
+                " select js:eval(executionTemplate) as result " +
                 "insert into outputStream;");
 
         SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(

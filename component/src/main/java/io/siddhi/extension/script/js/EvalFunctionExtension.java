@@ -135,7 +135,7 @@ public class EvalFunctionExtension extends FunctionExecutor {
         if (engine ==  null) {
             throw new SiddhiAppRuntimeException(
                     "Error evaluating the given expression in js:eval(), " +
-                            "the script engine manager should not be null"
+                            "failed to initialize script engine"
             );
         }
         return null;
