@@ -132,6 +132,12 @@ public class EvalFunctionExtension extends FunctionExecutor {
                         "and string");
         }
         engine = new ScriptEngineManager().getEngineByName(ENGINE_NAME);
+        if (engine ==  null) {
+            throw new SiddhiAppRuntimeException(
+                    "Error evaluating the given expression in js:eval(), " +
+                            "the script engine manager should not be null"
+            );
+        }
         return null;
     }
 
@@ -139,12 +145,6 @@ public class EvalFunctionExtension extends FunctionExecutor {
     protected Object execute(Object[] objects, State state) {
         String expressionString = (String) objects[0];
         Object result;
-        if (engine ==  null) {
-            throw new SiddhiAppRuntimeException(
-                    "Error evaluating the given expression " + expressionString + " in js:eval(), " +
-                            "the script engine manager should not be null"
-            );
-        }
         try {
             result = engine.eval(expressionString);
         } catch (ScriptException | ParserException e) {
