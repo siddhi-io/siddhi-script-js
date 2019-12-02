@@ -48,14 +48,11 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalArithmeticExpression testing an arithmetic expression evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
-        String concatFunc = "";
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select js:eval(executionTemplate, 'int') as result " +
                 "insert into outputStream;");
-        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
-                concatFunc + cseEventStream + query);
+        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(cseEventStream + query);
         executionPlanRuntime.addCallback("query1", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -79,15 +76,12 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalArithmeticExpression testing a logical expression evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
-        String concatFunc = "";
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select js:eval(executionTemplate, 'bool') as result " +
                 "insert into outputStream;");
 
-        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
-                concatFunc + cseEventStream + query);
+        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(cseEventStream + query);
         executionPlanRuntime.addCallback("query1", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -110,15 +104,12 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalInvalidExpression testing an invalid argument evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
-        String concatFunc = "";
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select js:eval(executionTemplate, 'str') as result " +
                 "insert into outputStream;");
 
-        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
-                concatFunc + cseEventStream + query);
+        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(cseEventStream + query);
         InputHandler inputHandler = executionPlanRuntime.getInputHandler("inputStream");
         executionPlanRuntime.start();
         inputHandler.send(new Object[]{"7 > 100 && 8 < 0"});
@@ -130,15 +121,12 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalInvalidExpression testing an invalid number of evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
-        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
-        String concatFunc = "";
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select js:eval(executionTemplate) as result " +
                 "insert into outputStream;");
 
-        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(
-                concatFunc + cseEventStream + query);
+        SiddhiAppRuntime executionPlanRuntime = siddhiManager.createSiddhiAppRuntime(cseEventStream + query);
         InputHandler inputHandler = executionPlanRuntime.getInputHandler("inputStream");
         executionPlanRuntime.start();
         inputHandler.send(new Object[]{"7 > 100 && 8 < 0"});

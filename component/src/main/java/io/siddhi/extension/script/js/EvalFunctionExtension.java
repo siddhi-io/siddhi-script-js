@@ -41,8 +41,6 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-import static io.siddhi.query.api.definition.Attribute.Type.STRING;
-
 /**
  * eval(expression, dataType)
  * Evaluate the string and return output as dataType
@@ -62,8 +60,7 @@ import static io.siddhi.query.api.definition.Attribute.Type.STRING;
                 @Parameter(name = "return.type",
                         description = "The return type of the evaluated expression." +
                                 " Supported types are int|long|float|double|bool|string.",
-                        type = {DataType.STRING}
-                        ),
+                        type = {DataType.STRING}),
         },
         parameterOverloads = {
                 @ParameterOverload(parameterNames = {"expression", "return.type"})
@@ -72,7 +69,7 @@ import static io.siddhi.query.api.definition.Attribute.Type.STRING;
         @ReturnAttribute(
                 description = "The output of the evaluated expression.",
                 type = {DataType.INT, DataType.LONG, DataType.DOUBLE, DataType.FLOAT,
-                        DataType.STRING, DataType.BOOL, DataType.OBJECT}),
+                        DataType.STRING, DataType.BOOL}),
         examples =
         @Example(
                 syntax = "js:eval(\"700 > 800\", 'bool')",
@@ -90,20 +87,7 @@ public class EvalFunctionExtension extends FunctionExecutor {
     protected StateFactory<State> init(ExpressionExecutor[] expressionExecutors,
                                        ConfigReader configReader,
                                        SiddhiQueryContext siddhiQueryContext) {
-        int executorsCount = expressionExecutors.length;
 
-        if (executorsCount != 2) {
-            throw new SiddhiAppValidationException("Invalid number of arguments passed to "
-                    + "js:eval() function. Required exactly 2, but found " + executorsCount);
-        }
-        ExpressionExecutor executor1 = expressionExecutors[0];
-
-        if (executor1.getReturnType() != STRING) {
-            throw new SiddhiAppValidationException("Invalid parameter type found for the first argument of "
-                    + "js:eval()() function, required " + STRING.toString() + ", but found "
-                    + executor1.getReturnType().toString());
-
-        }
         ConstantExpressionExecutor constantExpressionExecutor =
                 (ConstantExpressionExecutor) attributeExpressionExecutors[1];
         String type = String.valueOf(constantExpressionExecutor.getValue());
@@ -135,7 +119,7 @@ public class EvalFunctionExtension extends FunctionExecutor {
         if (engine ==  null) {
             throw new SiddhiAppRuntimeException(
                     "Error evaluating the given expression in js:eval(), " +
-                            "failed to initialize script engine"
+                            "failed to initialize script engine " + ENGINE_NAME
             );
         }
         return null;
