@@ -19,12 +19,12 @@ For information on <a target="_blank" href="https://siddhi.io/">Siddhi</a> and i
 
 ## Latest API Docs 
 
-Latest API Docs is <a target="_blank" href="https://siddhi-io.github.io/siddhi-script-js/api/5.0.3">5.0.3</a>.
+Latest API Docs is <a target="_blank" href="https://siddhi-io.github.io/siddhi-script-js/api/5.0.4">5.0.4</a>.
 
 ## Features
 
-* <a target="_blank" href="https://siddhi-io.github.io/siddhi-script-js/api/5.0.3/#eval-function">eval</a> *(<a target="_blank" href="http://siddhi.io/en/v5.1/docs/query-guide/#function">Function</a>)*<br> <div style="padding-left: 1em;"><p><p style="word-wrap: break-word;margin: 0;">This extension evaluates a given string and return the output according to the user specified data type.</p></p></div>
-* <a target="_blank" href="https://siddhi-io.github.io/siddhi-script-js/api/5.0.3/#javascript-script">javascript</a> *(<a target="_blank" href="http://siddhi.io/en/v5.1/docs/query-guide/#script">Script</a>)*<br> <div style="padding-left: 1em;"><p><p style="word-wrap: break-word;margin: 0;">This extension allows you to include JavaScript functions within the Siddhi Query Language.</p></p></div>
+* <a target="_blank" href="https://siddhi-io.github.io/siddhi-script-js/api/5.0.4/#eval-function">eval</a> *(<a target="_blank" href="http://siddhi.io/en/v5.1/docs/query-guide/#function">Function</a>)*<br> <div style="padding-left: 1em;"><p><p style="word-wrap: break-word;margin: 0;">This extension evaluates a given string and return the output according to the user specified data type.</p></p></div>
+* <a target="_blank" href="https://siddhi-io.github.io/siddhi-script-js/api/5.0.4/#javascript-script">javascript</a> *(<a target="_blank" href="http://siddhi.io/en/v5.1/docs/query-guide/#script">Script</a>)*<br> <div style="padding-left: 1em;"><p><p style="word-wrap: break-word;margin: 0;">This extension allows you to include JavaScript functions within the Siddhi Query Language.</p></p></div>
 
 ## Dependencies 
 
