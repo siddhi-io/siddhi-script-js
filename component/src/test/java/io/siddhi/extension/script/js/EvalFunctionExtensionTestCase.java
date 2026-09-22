@@ -48,6 +48,7 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalArithmeticExpression testing an arithmetic expression evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
+        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select js:eval(executionTemplate, 'int') as result " +
@@ -76,6 +77,7 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalArithmeticExpression testing a logical expression evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
+        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select js:eval(executionTemplate, 'bool') as result " +
@@ -104,6 +106,7 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalInvalidExpression testing an invalid argument evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
+        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select js:eval(executionTemplate, 'str') as result " +
@@ -121,6 +124,7 @@ public class EvalFunctionExtensionTestCase {
         log.info("testEvalInvalidExpression testing an invalid number of evaluation");
 
         SiddhiManager siddhiManager = new SiddhiManager();
+        siddhiManager.setExtension("js:eval", EvalFunctionExtension.class);
         String cseEventStream = "define stream inputStream(executionTemplate string);";
         String query = ("@info(name = 'query1') from inputStream" +
                 " select js:eval(executionTemplate) as result " +
