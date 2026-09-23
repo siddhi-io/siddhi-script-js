@@ -37,17 +37,16 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-    <modules>
-        <module>component</module>
-        <module>nashorn-core-osgi</module>
-    </modules>
+            <modules>
+                <module>component</module>
+            </modules>
         </profile>
     </profiles>
 
     <properties>
         <siddhi.version>5.1.13</siddhi.version>
-        <nashorn.core.version>15.7</nashorn.core.version>
-        <nashorn.asm.version>7.3.1</nashorn.asm.version>
+        <nashorn.orbit.version>15.7.0.wso2v1</nashorn.orbit.version>
+        <nashorn.asm.test.version>7.3.1</nashorn.asm.test.version>
         <siddhi.version.range>[5.0.0,6.0.0)</siddhi.version.range>
         <scala.version>2.12.0</scala.version>
         <scalascriptengine.version>1.3.11</scalascriptengine.version>
@@ -75,34 +74,9 @@
                 <version>${siddhi.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.openjdk.nashorn</groupId>
+                <groupId>org.wso2.orbit.org.openjdk.nashorn</groupId>
                 <artifactId>nashorn-core</artifactId>
-                <version>${nashorn.core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.ow2.asm</groupId>
-                <artifactId>asm</artifactId>
-                <version>${nashorn.asm.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.ow2.asm</groupId>
-                <artifactId>asm-commons</artifactId>
-                <version>${nashorn.asm.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.ow2.asm</groupId>
-                <artifactId>asm-tree</artifactId>
-                <version>${nashorn.asm.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.ow2.asm</groupId>
-                <artifactId>asm-analysis</artifactId>
-                <version>${nashorn.asm.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.ow2.asm</groupId>
-                <artifactId>asm-util</artifactId>
-                <version>${nashorn.asm.version}</version>
+                <version>${nashorn.orbit.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.googlecode.scalascriptengine</groupId>

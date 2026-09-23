@@ -35,8 +35,14 @@
             <artifactId>siddhi-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.openjdk.nashorn</groupId>
+            <groupId>org.wso2.orbit.org.openjdk.nashorn</groupId>
             <artifactId>nashorn-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>${nashorn.asm.test.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -92,8 +98,8 @@
                         </Export-Package>
                         <Import-Package>
                             io.siddhi.core.*;version="${siddhi.version.range}",
-                            org.openjdk.nashorn.api.scripting,
-                            org.openjdk.nashorn.internal.runtime,
+                            org.openjdk.nashorn.api.scripting;version="[15.7.0,16.0.0)",
+                            org.openjdk.nashorn.internal.runtime;version="[15.7.0,16.0.0)",
                             *;resolution:=optional
                         </Import-Package>
                         <Include-Resource>
