@@ -34,11 +34,11 @@ import io.siddhi.core.util.snapshot.state.State;
 import io.siddhi.core.util.snapshot.state.StateFactory;
 import io.siddhi.query.api.definition.Attribute;
 import io.siddhi.query.api.exception.SiddhiAppValidationException;
-import jdk.nashorn.internal.runtime.ParserException;
+import org.openjdk.nashorn.api.scripting.NashornScriptEngineFactory;
+import org.openjdk.nashorn.internal.runtime.ParserException;
 
 import java.util.Locale;
 import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 /**
@@ -79,7 +79,7 @@ import javax.script.ScriptException;
 )
 public class EvalFunctionExtension extends FunctionExecutor {
 
-    private static final String ENGINE_NAME = "nashorn";
+    private static final NashornScriptEngineFactory SCRIPT_ENGINE_FACTORY = new NashornScriptEngineFactory();
     private ScriptEngine engine;
     private Attribute.Type returnType = Attribute.Type.OBJECT;
 
@@ -115,11 +115,11 @@ public class EvalFunctionExtension extends FunctionExecutor {
                         " supported by js:eval() function are int|long|float|double|bool " +
                         "and string");
         }
-        engine = new ScriptEngineManager().getEngineByName(ENGINE_NAME);
+        engine = SCRIPT_ENGINE_FACTORY.getScriptEngine();
         if (engine ==  null) {
             throw new SiddhiAppRuntimeException(
                     "Error evaluating the given expression in js:eval(), " +
-                            "failed to initialize script engine " + ENGINE_NAME
+                            "failed to initialize script engine nashorn"
             );
         }
         return null;

@@ -27,8 +27,8 @@ import io.siddhi.core.exception.SiddhiAppRuntimeException;
 import io.siddhi.core.function.Script;
 import io.siddhi.core.util.config.ConfigReader;
 import io.siddhi.query.api.definition.Attribute;
-import jdk.nashorn.api.scripting.NashornScriptEngine;
-import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
+import org.openjdk.nashorn.api.scripting.NashornScriptEngine;
+import org.openjdk.nashorn.api.scripting.NashornScriptEngineFactory;
 
 import javax.script.Bindings;
 import javax.script.ScriptContext;
